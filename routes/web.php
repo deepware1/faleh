@@ -1,18 +1,14 @@
 <?php
 
+use App\Http\Livewire\Page;
+use App\Http\Livewire\Post;
+use App\Http\Livewire\Posts;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("home");
+
+Route::get("/blog", Posts::class)->name("blogs");
+Route::get("/blog/post/{slug}", Post::class)->name("post");
+Route::get("/{slug}", Page::class)->name("page");

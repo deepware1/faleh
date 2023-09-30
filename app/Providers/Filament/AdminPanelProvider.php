@@ -2,21 +2,26 @@
 
 namespace App\Providers\Filament;
 
-use Filament\Http\Middleware\Authenticate;
-use Filament\Http\Middleware\DisableBladeIconComponents;
-use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages;
 use Filament\Panel;
-use Filament\PanelProvider;
-use Filament\Support\Colors\Color;
 use Filament\Widgets;
-use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Filament\PanelProvider;
+use LaraZeus\Sky\SkyPlugin;
+use Filament\Support\Colors\Color;
+use LaraZeus\Sky\Editors\TipTapEditor;
+use Filament\Navigation\NavigationGroup;
+use Filament\Http\Middleware\Authenticate;
+use Filament\SpatieLaravelTranslatablePlugin;
+use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
-use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use RyanChandler\FilamentNavigation\FilamentNavigation;
+use Filament\Http\Middleware\DisableBladeIconComponents;
+use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -38,7 +43,12 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+            ])
+            ->navigationGroups([
+                NavigationGroup::make()
+                    ->label('Entry'),
+                NavigationGroup::make()
+                    ->label('CMS'),
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -53,6 +63,61 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->databaseNotifications()
+            ->colors([
+                'primary' => Color::Lime,
+            ])
+            ->plugins([
+                SpatieLaravelTranslatablePlugin::make()
+                    ->defaultLocales(['en', 'ar']),
+                FilamentNavigation::make(),
+                SkyPlugin::make()
+                    ->skyPrefix('')
+                    ->skyMiddleware(['web'])
+                    ->uriPrefix([
+                        'post' => 'post',
+                        'page' => 'page',
+                        'library' => 'library',
+                        'faq' => 'faq',
+                    ])
+
+                    // enable or disable the resources
+                    ->postResource()
+                    ->pageResource()
+                    ->faqResource(false)
+                    ->libraryResource(false)
+
+                    ->navigationGroupLabel('CMS')
+
+                    // uploading config
+                    ->uploadDisk("public")
+                    ->uploadDirectory("cms")
+
+                    // the default models
+                    ->skyModels([
+                        'Faq' => \LaraZeus\Sky\Models\Faq::class,
+                        'Post' => \App\Models\Post::class,
+                        'PostStatus' => \LaraZeus\Sky\Models\PostStatus::class,
+                        'Tag' => \LaraZeus\Sky\Models\Tag::class,
+                        'Library' => \LaraZeus\Sky\Models\Library::class,
+                    ])
+
+                    ->editor(TipTapEditor::class)
+                    ->parsers([\LaraZeus\Sky\Classes\BoltParser::class])
+                    ->recentPostsLimit(5)
+                    ->searchResultHighlightCssClass('highlight')
+                    ->skipHighlightingTerms(['iframe'])
+                    ->defaultFeaturedImage('url/to/image')
+                    ->libraryTypes([
+                        'FILE' => 'File',
+                        'IMAGE' => 'Image',
+                        'VIDEO' => 'Video',
+                    ])
+                    ->tagTypes([
+                        'tag' => 'Tag',
+                        'category' => 'Category',
+                    ])
             ]);
     }
 }
