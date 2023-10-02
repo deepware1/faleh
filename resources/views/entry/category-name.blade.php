@@ -11,5 +11,5 @@
         </span>
     @endif
 
-    {{ str($getRecord()->name)->limit(50) }}
+    {{ str($getRecord()->title)->limit(50) }}
 </div>

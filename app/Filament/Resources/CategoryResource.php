@@ -53,10 +53,10 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                Tabs::make('post_tabs')->schema([
-                    Tabs\Tab::make(__('Title & Content'))->schema([
+                Tabs::make('category_tabs')->schema([
+                    Tabs\Tab::make(__('Basic Info'))->schema([
                         TextInput::make('title')
-                            ->label(__('Post Title'))
+                            ->label(__('Category Title'))
                             ->required()
                             ->maxLength(255)
                             ->live(onBlur: true)
@@ -67,43 +67,19 @@ class CategoryResource extends Resource
 
                                 $set('slug', Str::slug($state));
                             }),
-                        SkyPlugin::get()->getEditor()::component()
-                            ->label(__('Post Content')),
-                    ]),
-
-                    /* Tabs\Tab::make(__('SEO'))->schema([
-                        Placeholder::make(__('SEO Settings')),
-    
-                        Hidden::make('user_id')
-                            ->default(auth()->user()->id)
-                            ->required(),
-    
-                        Hidden::make('post_type')
-                            ->default('post')
-                            ->required(),
-    
-                        Textarea::make('description')
-                            ->maxLength(255)
-                            ->label(__('Description'))
-                            ->hint(__('Write an excerpt for your post')),
-    
                         TextInput::make('slug')
                             ->unique(ignorable: fn (?Category $record): ?Category => $record)
                             ->required()
                             ->maxLength(255)
-                            ->label(__('Post Slug')),
+                            ->label(__('Category Slug')),
+
+                        Textarea::make('description')
+                            ->maxLength(500)
+                            ->label(__('Description'))
+                            ->rows(4)
+                            ->hint(__('Write an excerpt for your post')),
                     ]),
-                    Tabs\Tab::make(__('Tags'))->schema([
-                        Placeholder::make(__('Tags and Categories')),
-                        SpatieTagsInput::make('tags')
-                            ->type('tag')
-                            ->label(__('Tags')),
-    
-                        SpatieTagsInput::make('category')
-                            ->type('category')
-                            ->label(__('Categories')),
-                    ]),
-    
+
                     Tabs\Tab::make(__('Visibility'))->schema([
                         Placeholder::make(__('Visibility Options')),
                         Select::make('status')
@@ -111,22 +87,17 @@ class CategoryResource extends Resource
                             ->default('publish')
                             ->required()
                             ->live()
-                            ->options(SkyPlugin::get()->getModel('PostStatus')::pluck('label', 'name')),
-    
-                        TextInput::make('password')
-                            ->label(__('Password'))
-                            ->visible(fn (Get $get): bool => $get('status') === 'private'),
-    
+                            ->options([
+                                "publish" => "Publish",
+                                "draft" => "Draft",
+                            ]),
+
                         DateTimePicker::make('published_at')
                             ->label(__('published at'))
                             ->native(false)
                             ->default(now()),
-    
-                        DateTimePicker::make('sticky_until')
-                            ->native(false)
-                            ->label(__('Sticky Until')),
                     ]),
-    
+
                     Tabs\Tab::make(__('Image'))->schema([
                         Placeholder::make(__('Featured Image')),
                         ButtonGroup::make('featured_image_type')
@@ -148,12 +119,12 @@ class CategoryResource extends Resource
                             ->directory(SkyPlugin::get()->getUploadDirectory())
                             ->visible(fn (Get $get) => $get('featured_image_type') === 'upload')
                             ->label(''),
-    
+
                         TextInput::make('featured_image')
                             ->label(__('featured image url'))
                             ->visible(fn (Get $get) => $get('featured_image_type') === 'url')
                             ->url(),
-                    ]), */
+                    ]),
                 ])->columnSpan(2),
             ]);
     }
@@ -162,26 +133,28 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                ViewColumn::make('name_card')
-                    ->label(__('Name'))
-                    ->sortable(['name'])
-                    ->searchable(['name'])
+                ViewColumn::make('title_card')
+                    ->label(__('Title'))
+                    ->sortable(['title'])
+                    ->searchable(['title'])
                     ->toggleable()
                     ->view('entry.category-name'),
+
+                ViewColumn::make('status_desc')
+                    ->label(__('Status'))
+                    ->sortable(['status'])
+                    ->searchable(['status'])
+                    ->toggleable()
+                    ->view('zeus::filament.columns.status-desc')
+                    ->tooltip(fn (Category $record): string => $record->published_at->format('Y/m/d | H:i A')),
             ])
             ->defaultSort('id', 'desc')
             ->filters([
-                // TrashedFilter::make(),
+                TrashedFilter::make(),
             ])
             ->actions([
                 ActionGroup::make([
                     EditAction::make('edit')->label(__('Edit')),
-                    Action::make('Open')
-                        ->color('warning')
-                        ->icon('heroicon-o-arrow-top-right-on-square')
-                        ->label(__('Open'))
-                        ->url(fn (Category $record): string => route('post', ['slug' => $record]))
-                        ->openUrlInNewTab(),
                     DeleteAction::make('delete'),
                     ForceDeleteAction::make(),
                     RestoreAction::make(),

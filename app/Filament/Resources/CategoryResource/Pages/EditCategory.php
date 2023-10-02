@@ -17,7 +17,7 @@ class EditCategory extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
-            LocaleSwitcher::class,
+            LocaleSwitcher::make(),
         ];
     }
 }
