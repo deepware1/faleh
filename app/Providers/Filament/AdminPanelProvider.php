@@ -63,7 +63,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-            // ->spa()
+            ->spa()
             ->databaseNotifications()
             ->colors([
                 'primary' => Color::Lime,
