@@ -1,11 +1,5 @@
 @extends("layout.main")
 
-@section("head")
-<!-- Seo Tags -->
-<x-seo::meta />
-<!-- Seo Tags -->
-@endsection
-
 @section("body")
 
 @if(isset($header) || isset($breadcrumbs))
@@ -22,7 +16,7 @@
         <nav class="text-gray-400 font-bold my-2" aria-label="Breadcrumb">
             <ol class="list-none p-0 inline-flex">
                 <li class="flex items-center">
-                    <a href="{{ url('/') }}">{{ __('Home') }}</a>
+                    <a href="{{ url('/') }}">{{ __('Blog') }}</a>
                     @svg('heroicon-m-arrow-small-right','fill-current w-4 h-4 mx-3 rtl:rotate-180')
                 </li>
                 {{ $breadcrumbs }}
@@ -34,7 +28,7 @@
 </div>
 @endif
 
-<div class="container mx-auto my-6">
+<div class="container mx-auto my-1">
     {{ $slot }}
 </div>
 

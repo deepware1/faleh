@@ -35,20 +35,19 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
+            ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
             ])
             ->navigationGroups([
-                NavigationGroup::make()
-                    ->label('Entry'),
-                NavigationGroup::make()
-                    ->label('CMS'),
+                NavigationGroup::make('Entry'),
+                NavigationGroup::make('Utils'),
+                NavigationGroup::make('CMS'),
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -64,6 +63,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
+            // ->spa()
             ->databaseNotifications()
             ->colors([
                 'primary' => Color::Lime,
@@ -71,7 +71,7 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 SpatieLaravelTranslatablePlugin::make()
                     ->defaultLocales(['en', 'ar']),
-                FilamentNavigation::make(),
+                // FilamentNavigation::make(),
                 SkyPlugin::make()
                     ->skyPrefix('')
                     ->skyMiddleware(['web'])
@@ -96,11 +96,11 @@ class AdminPanelProvider extends PanelProvider
 
                     // the default models
                     ->skyModels([
-                        'Faq' => \LaraZeus\Sky\Models\Faq::class,
+                        // 'Faq' => \LaraZeus\Sky\Models\Faq::class,
                         'Post' => \App\Models\Post::class,
-                        'PostStatus' => \LaraZeus\Sky\Models\PostStatus::class,
-                        'Tag' => \LaraZeus\Sky\Models\Tag::class,
-                        'Library' => \LaraZeus\Sky\Models\Library::class,
+                        // 'PostStatus' => \LaraZeus\Sky\Models\PostStatus::class,
+                        // 'Tag' => \LaraZeus\Sky\Models\Tag::class,
+                        // 'Library' => \LaraZeus\Sky\Models\Library::class,
                     ])
 
                     ->editor(TipTapEditor::class)

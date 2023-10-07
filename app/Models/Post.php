@@ -11,8 +11,8 @@ class Post extends BasePost
 {
     public function image(): Collection | string | null
     {
-        if (! $this->getMedia('pages')->isEmpty()) {
-            return $this->getFirstMediaUrl('pages');
+        if (! $this->getMedia('posts')->isEmpty()) {
+            return $this->getFirstMediaUrl('posts');
         } else {
             return $this->featured_image ?? SkyPlugin::get()->getDefaultFeaturedImage();
         }

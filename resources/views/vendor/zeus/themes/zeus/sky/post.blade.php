@@ -1,9 +1,19 @@
 <div class="container mx-auto flex flex-wrap py-6">
 
+    <x-slot name="breadcrumbs">
+        <li class="flex items-center">
+            <a href="{{ route('blogs') }}">{{ __('Posts') }}</a>
+            @svg('iconpark-rightsmall-o', 'fill-current w-4 h-4 mx-3 rtl:rotate-180')
+        </li>
+        <li class="flex items-center">
+            {{ $post->title }}
+        </li>
+    </x-slot>
+
     <!-- Post Section -->
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">
 
-        <article class="flex flex-col shadow my-4">
+        <article class="flex flex-col my-4">
             <!-- Article Image -->
             <a href="#" class="hover:opacity-75">
                 <img src="{{ $post->image() }}">
@@ -25,9 +35,10 @@
                     {!! $post->getContent() !!}
                 </div>
 
-                <div>
+                <div class="mt-4">
+
                     @unless ($post->tags->isEmpty())
-                        @each($skyTheme.'.partial.category', $post->tags->where('type','category'), 'category')
+                        @each($skyTheme . '.partial.category', $post->tags->where('type', 'category'), 'category')
                     @endunless
                 </div>
             </div>
@@ -46,6 +57,7 @@
             </a>
         </div> --}}
 
+        {{-- Author --}}
         <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
             <div class="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
                 <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}"

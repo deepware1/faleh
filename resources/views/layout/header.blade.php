@@ -98,13 +98,13 @@
             </div>
             <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
-                    <a href="#" class="block py-2 pl-3 pr-4 text-white bg-lime-700 rounded md:bg-transparent md:text-lime-700 md:p-0 md:dark:text-lime-500" aria-current="page">Home</a>
+                    <a href="{{ route('home') }}" class="block py-2 pl-3 pr-4 text-white bg-lime-700 rounded md:bg-transparent md:text-lime-700 md:p-0 md:dark:text-lime-500" aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lime-700 md:p-0 md:dark:hover:text-lime-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                    <a href="{{ route('categories') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lime-700 md:p-0 md:dark:hover:text-lime-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Categories</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lime-700 md:p-0 md:dark:hover:text-lime-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                    <a href="{{ route('blogs') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lime-700 md:p-0 md:dark:hover:text-lime-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Blog</a>
                 </li>
                 <li>
                     <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lime-700 md:p-0 md:dark:hover:text-lime-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
@@ -118,18 +118,11 @@
     <div class="max-w-screen-xl px-4 py-3 mx-auto">
         <div class="flex items-center">
             <ul class="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
+                @foreach ($categories as $category)
                 <li>
-                    <a href="#" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Category 1</a>
+                    <a href="{{ route('subcategories', $category->slug) }}" class="text-gray-900 dark:text-white hover:underline">{{ $category->title }}</a>
                 </li>
-                <li>
-                    <a href="#" class="text-gray-900 dark:text-white hover:underline">Category 2</a>
-                </li>
-                <li>
-                    <a href="#" class="text-gray-900 dark:text-white hover:underline">Category 3</a>
-                </li>
-                <li>
-                    <a href="#" class="text-gray-900 dark:text-white hover:underline">Category 4</a>
-                </li>
+                @endforeach
             </ul>
         </div>
     </div>

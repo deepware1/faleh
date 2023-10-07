@@ -7,4 +7,4 @@
 @include($skyTheme . '.partial.sidebar.categories')
 @include($skyTheme . '.partial.sidebar.recent')
 @include($skyTheme . '.partial.sidebar.related')
-@include($skyTheme . '.partial.sidebar.pages')
+{{-- @include($skyTheme . '.partial.sidebar.pages') --}}

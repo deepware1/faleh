@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ __('filament-panels::layout.direction') ?? 'ltr' }}" class="antialiased filament js-focus-visible">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ __('filament-panels::layout.direction') ?? 'ltr' }}"
+    class="antialiased filament js-focus-visible">
 
 <head>
     <meta charset="utf-8">
@@ -7,11 +8,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="application-name" content="{{ config('app.name', 'Laravel') }}">
 
-    @yield("head")
+    <!-- Seo Tags -->
+    <x-seo::meta />
+    <!-- Seo Tags -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=KoHo:ital,wght@0,200;0,300;0,500;0,700;1,200;1,300;1,600;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=KoHo:ital,wght@0,200;0,300;0,500;0,700;1,200;1,300;1,600;1,700&display=swap"
+        rel="stylesheet">
 
     @livewireStyles
     @filamentStyles
@@ -24,15 +29,18 @@
             display: none !important;
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-white font-family-karla">
-    @include("layout.header")
+    {{-- @include('layout.header') --}}
 
-    @yield("body")
+    <livewire:shared.header-section />
 
-    @include("layout.footer")
+    @yield('body')
+
+    @include('layout.footer')
 
     @stack('scripts')
     @livewireScripts

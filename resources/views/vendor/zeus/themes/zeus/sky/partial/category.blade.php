@@ -1,3 +1,5 @@
-<a href="{{ route('tags',[$category->type,$category->slug]) }}" class="px-4 py-1 bg-primary-600 text-gray-50 inline-flex items-center justify-center mb-2 shadow-sm shadow-primary-600/50 rounded-[10px_20px_30px_40px/30px]">
-    {{ $category->name ?? '' }}
+<a href="{{ route('tags', [$category->type, $category->slug]) }}">
+    <span class="bg-lime-100 text-lime-800 text-sm font-medium mr-2 px-2.5 py-1 rounded dark:bg-lime-900 dark:text-lime-300">
+        {{ $category->name ?? '' }}
+    </span>
 </a>
