@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Mohamed Samir',
             'email' => 'gm.mohamedsamir@gmail.com',
             'password' => bcrypt('password'),
+            'is_admin' => true,
         ]);
     }
 }

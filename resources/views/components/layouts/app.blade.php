@@ -50,6 +50,17 @@
         if ((theme === 'dark') || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
         }
+
+        var searchInput = document.getElementById("search-navbar");
+        searchInput.addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            window.location.href = `/search/items/${searchInput.value}`;
+            }
+        })
+
     </script>
 
 </body>

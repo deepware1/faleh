@@ -23,4 +23,11 @@ class HeaderSection extends Component
     {
         return view('livewire.shared.header-section');
     }
+
+    public function logoutUser()
+    {
+        Auth::logout();
+        return redirect()->to('/');
+
+    }
 }
