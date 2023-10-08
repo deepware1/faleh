@@ -8,7 +8,7 @@ use App\Models\Category;
 class HomePage extends BasePage
 {
     protected string $viewPath = 'livewire.home.index';
-    protected string $pageTitle = "Home Page";
+    protected string $pageTitle = "Home";
 
     public $categories;
     public $items;

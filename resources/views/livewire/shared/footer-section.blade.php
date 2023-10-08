@@ -19,9 +19,7 @@
                     <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Compay</h3>
                     <div class="mt-4 space-y-4">
                         <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">About</a>
-                        <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Privay Policy</a>
-                        <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Terms &
-                            Conditions</a>
+                        <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Terms & Conditions</a>
                         <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Blog</a>
                     </div>
                 </div>
@@ -48,12 +46,12 @@
                 </div>
 
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
+                    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Pages</h3>
                     <div class="mt-4 space-y-4">
-                        <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Pricing</a>
-                        <!-- <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Documentation</a> -->
-                        <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Guides</a>
-                        <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">API Status</a>
+                        @foreach (App\Models\Post::where('post_type', 'page')->get() as $page)
+                            <a href="#"
+                                class="text-base text-gray-500 hover:text-gray-900 block">{{ $page->title }}</a>
+                        @endforeach
                     </div>
                 </div>
             </div>
