@@ -19,9 +19,6 @@ class Approvals extends Page implements HasTable
 
     protected static string $view = 'filament.admin.pages.approvals';
 
-    protected static ?string $navigationGroup = "Entry";
-
-    protected static ?int $navigationSort = 3;
 
     public function table(Table $table): Table
     {

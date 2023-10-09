@@ -101,6 +101,9 @@ class ItemResource extends Resource
                                 if (!$get("category_id")) {
                                     return [];
                                 }
+                                if(!$get("subcategory_id")){
+                                    return [];
+                                }
 
                                 $category = Category::find($get("category_id"));
 
