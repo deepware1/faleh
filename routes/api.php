@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use App\Api\Auth\Http\AuthController;
-use App\Api\Categories\Http\CategoriesController;
 use Illuminate\Support\Facades\Route;
+use App\Api\Categories\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------

@@ -4,6 +4,7 @@ namespace App\Api\Categories\Services;
 
 use App\Models\Category;
 use App\Api\Base\Traits\HttpResponses;
+use App\Api\Categories\Http\Resources\CategoriesResource;
 
 class CategoriesService
 {
@@ -12,7 +13,7 @@ class CategoriesService
     public function index()
     {
         return $this->success(
-            Category::whereNull("parent_id")->get()
+            new CategoriesResource(Category::whereNull("parent_id")->get())
         );
     }
 }
