@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/categories/all', [CategoriesController::class, 'index']);
+// Route::get('/categories/{slug}/subcategories', [CategoriesController::class, 'subcategories']);
 
 Route::group(['middleware' => 'auth:sanctum'], function (){
     Route::post('/logout', [AuthController::class, 'logout']);    
