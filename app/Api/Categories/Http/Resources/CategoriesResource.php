@@ -3,9 +3,9 @@
 namespace App\Api\Categories\Http\Resources;
  
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
  
-class CategoriesResource extends ResourceCollection
+class CategoriesResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -13,9 +13,15 @@ class CategoriesResource extends ResourceCollection
      * @return array<string, mixed>
      */
     public function toArray(Request $request): array
-    {
+    { 
         return [
-            'categories' => $this->collection
+            "id" => $this->id,
+            "title" => $this->title,
+            "description" => $this->description,
+            "slug" => $this->slug,
+            "image" => $this->image(),
+
         ];
     }
+    
 }

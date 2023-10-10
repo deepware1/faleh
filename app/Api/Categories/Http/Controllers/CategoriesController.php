@@ -15,8 +15,18 @@ class CategoriesController extends Controller
         $this->categoriesService = $categoriesService;
     }
     
-    public function index()
+    public function getAllCategories()
     {
-        return $this->categoriesService->index();
+        return $this->categoriesService->getAllCategories();
+    }
+
+    public function getSubCategories($slug)
+    {
+        return $this->categoriesService->getSubCategories($slug);
+    }
+
+    public function getCategory($slug)
+    {
+        return $this->categoriesService->getCategory($slug);
     }
 }

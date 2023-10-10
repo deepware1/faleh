@@ -23,8 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
-Route::get('/categories/all', [CategoriesController::class, 'index']);
-// Route::get('/categories/{slug}/subcategories', [CategoriesController::class, 'subcategories']);
+Route::get('/categories/all', [CategoriesController::class, 'getAllCategories']);
+Route::get('/categories/{slug}', [CategoriesController::class, 'getCategory']);
+Route::get('/categories/{slug}/subcategories', [CategoriesController::class, 'getSubCategories']);
 
 Route::group(['middleware' => 'auth:sanctum'], function (){
     Route::post('/logout', [AuthController::class, 'logout']);    

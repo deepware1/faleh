@@ -8,10 +8,14 @@ trait HttpResponses
 {
     protected function success($data , $message = null ,$code =  Response::HTTP_OK)
     {
-        return response()->json([
+        $response = [
             'status' => 'success',
             'message' => $message ,
             'data' => $data 
+        ];
+        return $response;
+        return response()->json([
+            $response
         ], $code);
     }
 
@@ -23,5 +27,22 @@ trait HttpResponses
             'data' => $data 
         ], $code);
     }
+    
+    protected function successAdditional()
+    {
+        return [
+            'status' => 'success',
+            'message' => "" 
+        ];
+    }
+
+    protected function errorAdditional()
+    {
+        return [
+            'status' => 'error',
+            'message' => "" 
+        ];
+    }
+
     
 }

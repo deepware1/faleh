@@ -32,6 +32,7 @@ use Wallo\FilamentSelectify\Components\ButtonGroup;
 use App\Filament\Admin\Resources\ItemResource\RelationManagers;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Filters\Filter;
 
 class ItemResource extends Resource
@@ -101,12 +102,12 @@ class ItemResource extends Resource
                                 if (!$get("category_id")) {
                                     return [];
                                 }
-                                if(!$get("subcategory_id")){
-                                    return [];
-                                }
+                               
 
                                 $category = Category::find($get("category_id"));
-
+                                if(!$category){
+                                    return [];
+                                }
                                 return $category->subcategories()->pluck("title", "id");
                             }),
 
@@ -138,6 +139,30 @@ class ItemResource extends Resource
                         TextInput::make("contact_number")
                             ->label(__('Contact Number'))
                             ->tel(),
+                        Select::make('type')
+                            ->label(__('type'))
+                            ->default('')
+                            ->required()
+                            ->options([
+                                "sell" => "Sell",
+                                "rent" => "Rent",
+                            ]),
+                        Select::make('condition')
+                            ->label(__('condition'))
+                            ->default('')
+                            ->required()
+                            ->options([
+                                "new" => "New",
+                                "used" => "Used",
+                            ]),
+                        Select::make('stock')
+                            ->label(__('stock'))
+                            ->default('')
+                            ->required()
+                            ->options([
+                                "in stock" => "In Stock",
+                                "out of stock" => "Out Of Stock",
+                            ]),
                     ]),
 
                     Tabs\Tab::make(__('Visibility'))->schema([
@@ -150,7 +175,15 @@ class ItemResource extends Resource
                                 "publish" => "Publish",
                                 "draft" => "Draft",
                             ]),
-
+                        Select::make('section')
+                            ->label(__('section'))
+                            ->default('')
+                            ->required()
+                            ->options([
+                                "latest" => "latest",
+                                "promoted" => "promoted",
+                                "featured" => "featured",
+                            ]),
                         DateTimePicker::make('published_at')
                             ->label(__('published at'))
                             ->native(false)
@@ -196,7 +229,7 @@ class ItemResource extends Resource
                     ->collection("items"),
                 TextColumn::make("title")
                     ->searchable(),
-                TextColumn::make("slug"),
+               // TextColumn::make("slug"),
                 TextColumn::make("price"),
                 TextColumn::make("currency.code"),
                 IconColumn::make("status")
@@ -213,6 +246,12 @@ class ItemResource extends Resource
                 TextColumn::make("country.code"),
                 TextColumn::make("city.name"),
                 TextColumn::make("published_at"),
+                SelectColumn::make("section")
+                ->options([
+                    "promoted" => "promoted",
+                    "featured" => "featured",
+                    "latest" => "latest",
+                ]),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
