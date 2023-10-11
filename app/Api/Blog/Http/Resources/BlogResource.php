@@ -1,11 +1,11 @@
 <?php
  
-namespace App\Api\Categories\Http\Resources;
+namespace App\Api\Blog\Http\Resources;
  
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
  
-class CategoriesResource extends JsonResource
+class BlogResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,9 +18,9 @@ class CategoriesResource extends JsonResource
             "id" => $this->id,
             "title" => $this->title,
             "description" => $this->description,
+            "content"   => $this->content,
             "slug" => $this->slug,
             "image" => $this->image(),
-            "subcategories" => SubCategoriesResource::collection($this->subcategories)
         ];
     }
     

@@ -23,7 +23,7 @@ class Approvals extends Page implements HasTable
     public function table(Table $table): Table
     {
         return $table
-            ->query(Item::query()->where("status", "pending"))
+            ->query(Item::query()->whereNot("status", "publish"))
             ->columns([
                 SpatieMediaLibraryImageColumn::make('avatar')
                     ->collection("items"),

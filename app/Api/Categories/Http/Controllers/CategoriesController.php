@@ -2,6 +2,7 @@
 
 namespace App\Api\Categories\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Api\Categories\Services\CategoriesService;
 
@@ -15,14 +16,19 @@ class CategoriesController extends Controller
         $this->categoriesService = $categoriesService;
     }
     
-    public function getAllCategories()
+    public function getAllCategories(Request $request)
     {
-        return $this->categoriesService->getAllCategories();
+        return $this->categoriesService->getAllCategories($request);
     }
 
-    public function getSubCategories($slug)
+    public function searchCategories(Request $request)
     {
-        return $this->categoriesService->getSubCategories($slug);
+        return $this->categoriesService->searchCategories($request);
+    }
+
+    public function getSubCategories(Request $request,$slug)
+    {
+        return $this->categoriesService->getSubCategories($request,$slug);
     }
 
     public function getCategory($slug)
