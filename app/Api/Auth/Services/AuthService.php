@@ -3,12 +3,14 @@
 namespace App\Api\Auth\Services;
 
 use App\Models\User;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Api\Base\Traits\HttpResponses;
 use App\Api\Auth\Requests\LoginUserRequest;
 use App\Api\Auth\Requests\StoreUserRequest;
-use Illuminate\Http\Response;
+use App\Api\Auth\Http\Resources\UsersResource;
+use App\Api\Auth\Requests\ChangePasswordUserRequest;
 
 class AuthService
 {
@@ -25,7 +27,7 @@ class AuthService
         $user = User::where('email', $request->email)->first();
 
         return $this->success([
-            'user' => $user,
+            'user' => new UsersResource($user),
             'token' => $user->createToken('Api Token of ' . $user->name)->plainTextToken
         ],"Login Successful");
     }
@@ -37,16 +39,42 @@ class AuthService
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'phone'  => $request->phone,
+            'about' => $request->about ?? null,
         ]);
         return $this->success([
-            'user' => $user,
+            'user' => new UsersResource($user),
             'token' => $user->createToken('Api Token of ' . $user->name)->plainTextToken
         ],"User Created Successful");
+    }
+
+    public function changePassword(ChangePasswordUserRequest $request)
+    {
+        $request->validated($request->all());
+
+        $user = Auth::user();
+       
+        if (Hash::check($request->old_password ,$user->password)) {
+            $user->password =  Hash::make($request->new_password);
+            $user->save();
+            return $this->success([
+               new UsersResource($user),
+            ],"Password Updated Successful");
+        }else{
+            return $this->error([],'Old password is wrong ');
+        }
     }
 
     public function logout()
     {
         Auth::user()->currentAccessToken()->delete();
         return $this->success([],"You have logged out");
+    }
+
+    public function getProfile()
+    {
+        return $this->success([
+            new UsersResource(Auth::user())
+        ]);
     }
 }

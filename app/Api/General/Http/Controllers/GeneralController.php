@@ -21,6 +21,12 @@ class GeneralController extends Controller
         return $this->generalService->getAllCountries($request);
     }
 
+    public function getCountry(Request $request,$id)
+    {
+        return $this->generalService->getCountry($request,$id);
+    }
+
+
     public function getAllCities(Request $request)
     {
         return $this->generalService->getAllCities($request);
@@ -29,6 +35,11 @@ class GeneralController extends Controller
     public function getAllCurrencies(Request $request)
     {
         return $this->generalService->getAllCurrencies($request);
+    }
+
+    public function searchUsers(Request $request)
+    {
+        return $this->generalService->searchUsers($request);
     }
 
 }

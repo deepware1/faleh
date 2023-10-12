@@ -5,7 +5,7 @@ namespace App\Api\Auth\Requests;
 use App\Api\Base\Requests\ApiRequest;
 use Illuminate\Validation\Rules\Password;
 
-class StoreUserRequest extends ApiRequest
+class ChangePasswordUserRequest extends ApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,8 @@ class StoreUserRequest extends ApiRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' =>  ['required', 'string' , 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed' ,Password::defaults() ],
-            'phone' => ['required', 'string']
+            'old_password' => ['required',Password::defaults() ],
+            'new_password' => ['required', 'confirmed' ,Password::defaults() ],
         ];
     }
 }

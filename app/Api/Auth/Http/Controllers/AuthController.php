@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Api\Auth\Http;
+namespace App\Api\Auth\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Api\Auth\Services\AuthService;
 use App\Api\Auth\Requests\LoginUserRequest;
 use App\Api\Auth\Requests\StoreUserRequest;
+use App\Api\Auth\Requests\ChangePasswordUserRequest;
 
 class AuthController extends Controller
 {
@@ -27,8 +28,18 @@ class AuthController extends Controller
         return $this->authService->register($request);
     }
 
+    public function changePassword(ChangePasswordUserRequest $request)
+    {
+        return $this->authService->changePassword($request);
+    }
+
     public function logout()
     {
         return $this->authService->logout();
+    }
+
+    public function getProfile()
+    {
+        return $this->authService->getProfile();
     }
 }

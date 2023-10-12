@@ -160,8 +160,8 @@ class ItemResource extends Resource
                             ->default('')
                             ->required()
                             ->options([
-                                "in stock" => "In Stock",
-                                "out of stock" => "Out Of Stock",
+                                "in_stock" => "In Stock",
+                                "out_of_stock" => "Out Of Stock",
                             ]),
                     ]),
 
