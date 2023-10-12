@@ -24,4 +24,21 @@ trait HttpResponses
         ], $code);
     }
     
+    protected function successAdditional()
+    {
+        return [
+            'status' => 'success',
+            'message' => "" 
+        ];
+    }
+
+    protected function errorAdditional()
+    {
+        return [
+            'status' => 'error',
+            'message' => "" 
+        ];
+    }
+
+    
 }

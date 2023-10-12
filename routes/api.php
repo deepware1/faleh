@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Api\Auth\Http\AuthController;
+use App\Api\Auth\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Api\Blog\Http\Controllers\BlogController;
+use App\Api\General\Http\Controllers\GeneralController;
 use App\Api\Categories\Http\Controllers\CategoriesController;
+use App\Api\Items\Http\Controllers\ItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +26,29 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
-Route::get('/categories/all', [CategoriesController::class, 'index']);
-// Route::get('/categories/{slug}/subcategories', [CategoriesController::class, 'subcategories']);
+
+Route::get('/categories/list', [CategoriesController::class, 'getAllCategories']);
+Route::get('/categories/search', [CategoriesController::class, 'searchCategories']);
+Route::get('/categories/{slug}', [CategoriesController::class, 'getCategory']);
+Route::get('/categories/{slug}/subcategories', [CategoriesController::class, 'getSubCategories']);
+
+Route::get('/items/list', [ItemsController::class, 'getAllItems']);
+Route::get('/items/search', [ItemsController::class, 'searchItems']);
+Route::get('/items/{slug}', [ItemsController::class, 'getItem']);
+
+Route::get('/blog/list', [BlogController::class, 'getAllBlogs']);
+Route::get('/blog/{slug}', [BlogController::class, 'getBlog']);
+
+
+Route::get('/countries/list', [GeneralController::class, 'getAllCountries']);
+Route::get('/country/{id}', [GeneralController::class, 'getCountry']);
+Route::get('/cities/list', [GeneralController::class, 'getAllCities']);
+Route::get('/currencies/list', [GeneralController::class, 'getAllCurrencies']);
+Route::get('/users/search', [GeneralController::class, 'searchUsers']);
 
 Route::group(['middleware' => 'auth:sanctum'], function (){
+    Route::get('/user/profile', [AuthController::class, 'getProfile']); 
+    Route::post('/user/change-password', [AuthController::class, 'changePassword']);   
+    Route::post('/items/submit', [ItemsController::class, 'createItem']);
     Route::post('/logout', [AuthController::class, 'logout']);    
 });

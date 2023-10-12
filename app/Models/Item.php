@@ -71,4 +71,10 @@ class Item extends Model implements HasMedia
             return $this->featured_image ?? "";
         }
     }
+
+    public function scopeIsPublished($query)
+    {
+        return $query->where('status', 'publish');
+        
+    }
 }

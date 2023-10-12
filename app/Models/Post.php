@@ -17,4 +17,10 @@ class Post extends BasePost
             return $this->featured_image ?? SkyPlugin::get()->getDefaultFeaturedImage();
         }
     }
+
+    public function scopeIsPublished($query)
+    {
+        return $query->where('status', 'publish');
+        
+    }
 }
