@@ -56,9 +56,9 @@ Route::get('/cities/list', [GeneralController::class, 'getAllCities']);
 Route::get('/currencies/list', [GeneralController::class, 'getAllCurrencies']);
 Route::get('/users/search', [GeneralController::class, 'searchUsers']);
 
-Route::group(['middleware' => 'auth:sanctum'], function (){
-    Route::get('/user/profile', [AuthController::class, 'getProfile']); 
-    Route::post('/user/change-password', [AuthController::class, 'changePassword']);   
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::get('/user/profile', [AuthController::class, 'getProfile']);
+    Route::post('/user/change-password', [AuthController::class, 'changePassword']);
     Route::post('/items/submit', [ItemsController::class, 'createItem']);
-    Route::post('/logout', [AuthController::class, 'logout']);    
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
