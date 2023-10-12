@@ -1,12 +1,14 @@
 <?php
 
+use App\Models\Category;
+use LaraZeus\Sky\SkyPlugin;
 use Illuminate\Http\Request;
-use App\Api\Auth\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Api\Auth\Http\Controllers\AuthController;
 use App\Api\Blog\Http\Controllers\BlogController;
+use App\Api\Items\Http\Controllers\ItemsController;
 use App\Api\General\Http\Controllers\GeneralController;
 use App\Api\Categories\Http\Controllers\CategoriesController;
-use App\Api\Items\Http\Controllers\ItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,14 @@ use App\Api\Items\Http\Controllers\ItemsController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post("create-category", function (Request $request) {
+    /** @var Category $rec */
+    $rec = Category::find(6);
+
+    $file = $rec->addMedia($request->featured_image)
+        ->toMediaCollection("categories", SkyPlugin::get()->getUploadDisk());
 });
 
 
