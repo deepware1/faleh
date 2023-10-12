@@ -5,19 +5,20 @@ namespace App\Api\Items\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Api\Items\Services\ItemsService;
+use App\Api\Items\Requests\GetItemRequest;
 use App\Api\Items\Requests\CreateItemRequest;
 
 class ItemsController extends Controller
 {
-   
+
     private ItemsService $itemsService;
 
     public function __construct(ItemsService $itemsService)
     {
         $this->itemsService = $itemsService;
     }
-    
-    public function getAllItems(Request $request)
+
+    public function getAllItems(GetItemRequest $request)
     {
         return $this->itemsService->getAllItems($request);
     }
@@ -29,7 +30,6 @@ class ItemsController extends Controller
 
     public function createItem(CreateItemRequest $request)
     {
-        return $request;
         return $this->itemsService->createItem($request);
     }
 

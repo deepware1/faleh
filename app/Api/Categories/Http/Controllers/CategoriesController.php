@@ -8,14 +8,14 @@ use App\Api\Categories\Services\CategoriesService;
 
 class CategoriesController extends Controller
 {
-   
+
     private CategoriesService $categoriesService;
 
     public function __construct(CategoriesService $categoriesService)
     {
         $this->categoriesService = $categoriesService;
     }
-    
+
     public function getAllCategories(Request $request)
     {
         return $this->categoriesService->getAllCategories($request);
@@ -26,9 +26,9 @@ class CategoriesController extends Controller
         return $this->categoriesService->searchCategories($request);
     }
 
-    public function getSubCategories(Request $request,$slug)
+    public function getSubCategories(Request $request, $slug)
     {
-        return $this->categoriesService->getSubCategories($request,$slug);
+        return $this->categoriesService->getSubCategories($request, $slug);
     }
 
     public function getCategory($slug)

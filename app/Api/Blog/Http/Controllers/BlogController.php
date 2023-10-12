@@ -8,14 +8,14 @@ use App\Api\Blog\Services\BlogService;
 
 class BlogController extends Controller
 {
-   
+
     private BlogService $blogService;
 
     public function __construct(BlogService $blogService)
     {
         $this->blogService = $blogService;
     }
-    
+
     public function getAllBlogs(Request $request)
     {
         return $this->blogService->getAllBlogs($request);

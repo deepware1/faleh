@@ -20,9 +20,9 @@ class CategoriesService
 
     public function searchCategories($request)
     {
-        if(!empty($request->keyword)){          
+        if (!empty($request->keyword)) {
             $categories = Category::where("title", 'like', '%' . $request->keyword . '%')->paginate($request->limit ?? 15);
-        }else{
+        } else {
             $categories = Category::paginate($request->limit ?? 15);
         }
         return CategoriesResource::collection(
@@ -30,11 +30,11 @@ class CategoriesService
         )->additional($this->successAdditional());
     }
 
-    public function getSubCategories($request,$slug)
+    public function getSubCategories($request, $slug)
     {
-        $category =  Category::where("slug",$slug)->first();
+        $category =  Category::where("slug", $slug)->first();
         return SubCategoriesResource::collection(
-            Category::where("parent_id",$category->id)->paginate($request->limit ?? 15)
+            Category::where("parent_id", $category->id)->paginate($request->limit ?? 15)
         )->additional($this->successAdditional());
     }
 
@@ -42,9 +42,8 @@ class CategoriesService
     public function getCategory($slug)
     {
         $result = new CategoriesResource(
-            Category::where("slug",$slug)->first()
+            Category::where("slug", $slug)->first()
         );
         return $this->success($result);
     }
-
 }

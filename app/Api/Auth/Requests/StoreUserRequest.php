@@ -24,8 +24,8 @@ class StoreUserRequest extends ApiRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'email' =>  ['required', 'string' , 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed' ,Password::defaults() ],
+            'email' =>  ['required', 'string', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', Password::defaults()],
             'phone' => ['required', 'string']
         ];
     }

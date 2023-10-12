@@ -8,7 +8,7 @@ use App\Api\General\Services\GeneralService;
 
 class GeneralController extends Controller
 {
-   
+
     private GeneralService $generalService;
 
     public function __construct(GeneralService $generalService)
@@ -21,9 +21,9 @@ class GeneralController extends Controller
         return $this->generalService->getAllCountries($request);
     }
 
-    public function getCountry(Request $request,$id)
+    public function getCountry(Request $request, $id)
     {
-        return $this->generalService->getCountry($request,$id);
+        return $this->generalService->getCountry($request, $id);
     }
 
 
@@ -31,7 +31,7 @@ class GeneralController extends Controller
     {
         return $this->generalService->getAllCities($request);
     }
-  
+
     public function getAllCurrencies(Request $request)
     {
         return $this->generalService->getAllCurrencies($request);
@@ -41,5 +41,4 @@ class GeneralController extends Controller
     {
         return $this->generalService->searchUsers($request);
     }
-
 }

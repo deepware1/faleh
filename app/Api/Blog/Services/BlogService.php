@@ -21,10 +21,9 @@ class BlogService
     public function getBlog($slug)
     {
         $result = new BlogResource(
-            Post::where("slug",$slug)->first()
+            Post::where("slug", $slug)->first()
         );
 
         return $this->success($result);
     }
-
 }

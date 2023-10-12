@@ -23,8 +23,8 @@ class ChangePasswordUserRequest extends ApiRequest
     public function rules(): array
     {
         return [
-            'old_password' => ['required',Password::defaults() ],
-            'new_password' => ['required', 'confirmed' ,Password::defaults() ],
+            'old_password' => ['required', Password::defaults()],
+            'new_password' => ['required', 'confirmed', Password::defaults()],
         ];
     }
 }

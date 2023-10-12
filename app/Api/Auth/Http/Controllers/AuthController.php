@@ -10,14 +10,14 @@ use App\Api\Auth\Requests\ChangePasswordUserRequest;
 
 class AuthController extends Controller
 {
-   
+
     private AuthService $authService;
 
     public function __construct(AuthService $authService)
     {
         $this->authService = $authService;
     }
-    
+
     public function login(LoginUserRequest $request)
     {
         return $this->authService->login($request);

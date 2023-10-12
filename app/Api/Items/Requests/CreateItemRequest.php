@@ -4,7 +4,6 @@ namespace App\Api\Items\Requests;
 
 use Illuminate\Validation\Rule;
 use App\Api\Base\Requests\ApiRequest;
-use Illuminate\Validation\Rules\Password;
 
 class CreateItemRequest extends ApiRequest
 {
@@ -25,12 +24,12 @@ class CreateItemRequest extends ApiRequest
     {
         return [
             'title' => ['required', 'string', 'max:255'],
-            'slug' =>  ['required', 'string' , 'max:255'],
-            'description' => ['required', 'string' ],
-            'price' => ['required', 'regex:/^\d+(\.\d{1,2})?$/' ],
+            'slug' =>  ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'price' => ['required', 'regex:/^\d+(\.\d{1,2})?$/'],
             'category_id' => ['required', 'string'],
-            'subcategory_id' =>[],
-            'country_id' => ['required', 'string','exists:countries,id'],
+            'subcategory_id' => [],
+            'country_id' => ['required', 'string', 'exists:countries,id'],
             'city_id' => ['required', 'string', 'exists:cities,id'],
             'currency_id' => ['required', 'string', 'exists:currencies,id'],
             'contact_number' => ['required', 'string', 'max:255'],

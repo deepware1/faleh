@@ -23,10 +23,10 @@ class GeneralService
         )->additional($this->successAdditional());
     }
 
-    public function getCountry($request,$id)
+    public function getCountry($request, $id)
     {
         return $this->success(new CountriesResource(
-            Country::where('id',$id)->first()
+            Country::where('id', $id)->first()
         ));
     }
 
@@ -47,9 +47,9 @@ class GeneralService
 
     public function searchUsers($request)
     {
-        if(!empty($request->keyword)){          
+        if (!empty($request->keyword)) {
             $items = User::where("name", 'like', '%' . $request->keyword . '%')->paginate($request->limit ?? 15);
-        }else{
+        } else {
             $items = User::paginate($request->limit ?? 15);
         }
         return UsersResource::collection(

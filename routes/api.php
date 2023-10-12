@@ -25,13 +25,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post("create-category", function (Request $request) {
-    /** @var Category $rec */
-    $rec = Category::find(6);
-
-    $file = $rec->addMedia($request->featured_image)
-        ->toMediaCollection("categories", SkyPlugin::get()->getUploadDisk());
-});
 
 
 Route::post('/login', [AuthController::class, 'login']);

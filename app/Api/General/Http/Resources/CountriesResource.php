@@ -1,10 +1,10 @@
 <?php
- 
+
 namespace App\Api\General\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
- 
+
 class CountriesResource extends JsonResource
 {
     /**
@@ -13,7 +13,7 @@ class CountriesResource extends JsonResource
      * @return array<string, mixed>
      */
     public function toArray(Request $request): array
-    { 
+    {
         return [
             "id" => $this->id,
             "code" => $this->code,
@@ -21,5 +21,4 @@ class CountriesResource extends JsonResource
             "cities" => CitiesResource::collection($this->cities)
         ];
     }
-    
 }
