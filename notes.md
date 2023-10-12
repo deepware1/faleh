@@ -96,3 +96,5 @@
 - weather 
 - بورصه
 - notification
+
+### git config pull.rebase false
