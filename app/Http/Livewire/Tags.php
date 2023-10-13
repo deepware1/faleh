@@ -19,7 +19,7 @@ class Tags extends Component
     {
         $this->type = $type;
         $this->slug = $slug;
-        $this->tag = SkyPlugin::get()->getModel('Tag')::findBySlug($slug, $type);
+        $this->tag = SkyPlugin::get()->getModel('Tag')::findBySlug($slug, $type, "en");
 
         abort_if($this->tag === null, 404);
     }

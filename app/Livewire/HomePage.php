@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Item;
 use App\Models\Category;
+use Illuminate\Support\Facades\App;
 
 class HomePage extends BasePage
 {

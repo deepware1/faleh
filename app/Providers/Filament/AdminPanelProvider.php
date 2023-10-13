@@ -72,7 +72,7 @@ class AdminPanelProvider extends PanelProvider
                     ->defaultLocales(['en', 'ar']),
                 // FilamentNavigation::make(),
                 SkyPlugin::make()
-                    ->skyPrefix('')
+                    ->skyPrefix('blog')
                     ->skyMiddleware(['web'])
                     ->uriPrefix([
                         'post' => 'post',
