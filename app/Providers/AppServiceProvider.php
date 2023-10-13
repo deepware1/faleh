@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Exception;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -22,7 +23,22 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Livewire::setScriptRoute(function ($handle) {
-            return Route::get('/build/assets/app-cef20a32.js', $handle);
+            $file = $this->getJsAssetsFile();
+            return Route::get('/build/assets/' . $file, $handle);
         });
+    }
+
+    private function getJsAssetsFile()
+    {
+        $files = scandir(public_path("build/assets"));
+        unset($files[0], $files[1]);
+
+        foreach ($files as $file) {
+            if (str_ends_with($file, ".js")) {
+                return $file;
+            }
+        }
+
+        throw new Exception("please build your assets");
     }
 }
