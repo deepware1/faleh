@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Livewire\Tags;
 use App\Livewire\CategoriesItemsPage;
+use App\Livewire\ItemCreatePage;
+use App\Livewire\ItemShowPage;
 
 Route::get('/', HomePage::class)->name("home");
 Route::get('/categories', CategoriesPage::class)->name('categories');
@@ -19,6 +21,7 @@ Route::get('/categories/{category}/subcategories', SubCategoriesPage::class)->na
 Route::get('/categories/{category}/items', CategoriesItemsPage::class)->name('subcategories.items');
 
 Route::get("/items", ItemsPage::class)->name("items");
+Route::get("/items/{slug}", ItemShowPage::class)->name("items.show.item");
 Route::get('/search/items/{keyword}', SearchPage::class)->name("search");
 
 // auth 
@@ -28,3 +31,9 @@ Route::get('/register', RegisterPage::class)->name('register');
 Route::get("/blog", Posts::class)->name("blogs");
 Route::get("/blog/{type}/{slug}", Tags::class)->name("tags");
 Route::get("locale/{locale}", LocalizationController::class)->name("locale");
+
+Route::group(['middleware' => 'auth'], function () {
+    //Route::get('/user/profile', [AuthController::class, 'getProfile']);
+    Route::get('/create/item',ItemCreatePage::class)->name('item.create');
+});
+

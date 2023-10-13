@@ -1,6 +1,6 @@
 <div class="bg-white shadow rounded overflow-hidden group">
     <div class="relative">
-        <a href="{{ route('items') }}">
+        <a href="{{ route('items.show.item', $item->slug )}}">
             <img src="{{ $item->image() }}" alt="{{ $item->title }}" class="w-full">
         </a>
         {{-- <div
@@ -18,7 +18,7 @@
         </div> --}}
     </div>
     <div class="pt-4 pb-3 px-4">
-        <a href="#">
+        <a href="{{ route('items.show.item', $item->slug )}}">
             <h4 class="font-medium mb-2 text-gray-800 hover:text-primary transition">
                 {{ $item->title }}
             </h4>

@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithPagination;
 
-class CategoriesItemsPage extends Component
+class CategoriesItemsPage extends BasePage
 {
     use WithPagination;
 
@@ -24,7 +24,7 @@ class CategoriesItemsPage extends Component
     public function render()
     {
         return view($this->viewPath, [
-            "items" => $this->category->items()->isPublished()->simplePaginate(2),
+            "items" => $this->category->items()->isPublished()->simplePaginate(8),
         ]);
     }
 

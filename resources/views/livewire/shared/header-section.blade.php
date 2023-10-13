@@ -164,15 +164,15 @@
                         </div>
                     </div>
                 @else
-                    <a href="/login"
+                    <a href="{{ route('login') }}"
                         class="ml-2 text-lime-700 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">
                         {{ __('front.login') }}
                     </a>
                 @endif
-                <button type="button"
+                <a href="{{ route('item.create') }}"
                     class="ml-2 text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">
                     {{ __('front.submit_ad') }}
-                </button>
+                </a>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
                 <div class="relative mt-3 md:hidden">
