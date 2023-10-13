@@ -55,4 +55,9 @@ class Category extends Model implements HasMedia
             return $this->featured_image ?? "";
         }
     }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class, "subcategory_id");
+    }
 }

@@ -11,10 +11,13 @@ use App\Livewire\SubCategoriesPage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Livewire\Tags;
+use App\Livewire\CategoriesItemsPage;
 
 Route::get('/', HomePage::class)->name("home");
 Route::get('/categories', CategoriesPage::class)->name('categories');
 Route::get('/categories/{category}/subcategories', SubCategoriesPage::class)->name('subcategories');
+Route::get('/categories/{category}/items', CategoriesItemsPage::class)->name('subcategories.items');
+
 Route::get("/items", ItemsPage::class)->name("items");
 Route::get('/search/items/{keyword}', SearchPage::class)->name("search");
 

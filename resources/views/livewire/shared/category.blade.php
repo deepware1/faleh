@@ -1,5 +1,5 @@
 @php
-    $href = $isSub ? route('items') : route('subcategories', $category->slug);
+    $href = $isSub ? route('subcategories.items', $category->slug) : route('subcategories', $category->slug);
 @endphp
 
 <div class="relative rounded-sm overflow-hidden group">
