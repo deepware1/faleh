@@ -20,4 +20,8 @@ return [
         'blog'          => 'Blog',
         'items'         => 'Items',
     ],
+
+    'recent_items'      => 'Recent Items',
+    'featured_items'    => 'Featured Items',
+    'promoted_items'    => 'Promoted Items',
 ];
