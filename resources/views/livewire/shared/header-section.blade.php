@@ -95,12 +95,12 @@
                         </svg>
                         <span class="sr-only">Search icon</span>
                     </div>
-                    
-                     <input type="text" id="search-navbar"
+
+                    <input type="text" id="search-navbar"
                         class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-lime-500 focus:border-lime-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500"
-                        placeholder="Search..." >
-                  
-                    
+                        placeholder="Search...">
+
+
                 </div>
                 <button data-collapse-toggle="navbar-search" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -117,8 +117,8 @@
                         class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                         type="button">
                         <span class="sr-only">Open user menu</span>
-                        <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                            alt="user photo">
+                        <img class="w-8 h-8 rounded-full"
+                            src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
                     </button>
 
                     <!-- Dropdown menu -->
@@ -144,11 +144,11 @@
                             </li>
                         </ul>
                         <div class="py-2">
-                        <form class="space-y-4 md:space-y-6" wire:submit.prevent="logoutUser">
-                            <button type="submit"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                                Signout</button>
-                        </form>
+                            <form class="space-y-4 md:space-y-6" wire:submit.prevent="logoutUser">
+                                <button type="submit"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                    Signout</button>
+                            </form>
                         </div>
                     </div>
                 @else
@@ -212,11 +212,8 @@
     </nav>
 
     @if (Route::is('home'))
-        <header class="w-full mx-auto">
-            <div class="flex flex-col max-h-80 items-center overflow-hidden">
-                <img class="-z-50"
-                    src="https://images.unsplash.com/photo-1543304216-b46be324b571?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1581&q=80">
-            </div>
+        <header class="w-full mx-auto h-100 items-center overflow-hidden">
+            <img class="-z-50 object-cover w-full h-full" src="{{ url('images/slider.jpg') }}">
         </header>
     @endif
 </div>
