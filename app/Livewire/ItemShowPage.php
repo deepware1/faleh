@@ -11,11 +11,8 @@ class ItemShowPage extends BasePage
 
     public $item;
 
-
     public function mount($slug)
     {
-
-        $this->item = Item::where('slug',$slug)->with('country','city')->first();
-       
+        $this->item = Item::where('slug', $slug)->with('country', 'city')->first();
     }
 }

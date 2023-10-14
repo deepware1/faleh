@@ -22,10 +22,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Livewire::setScriptRoute(function ($handle) {
+        /* Livewire::setScriptRoute(function ($handle) {
             $file = $this->getJsAssetsFile();
             return Route::get('/build/assets/' . $file, $handle);
-        });
+        }); */
     }
 
     private function getJsAssetsFile()

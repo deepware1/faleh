@@ -7,8 +7,10 @@ return [
     'submit_ad'     => 'Submit Ad',
     'home'          => 'Home',
     'categories'    => 'Categories',
+    'subcategories' => 'Sub Categories',
     'blog'          => 'Blog',
     'contact'       => 'Contact',
+    'profile'       => 'Profile',
 
     'footer'        => [
         'description'   => 'Faleh is the comprehensive platform for agricultural investment in Egypt. It provides all services and opportunities for those interested in agricultural investment and is supported by the state.',
@@ -21,7 +23,38 @@ return [
         'items'         => 'Items',
     ],
 
+    'items'             => 'Items',
     'recent_items'      => 'Recent Items',
     'featured_items'    => 'Featured Items',
     'promoted_items'    => 'Promoted Items',
+    'category'          => 'Category',
+    'subcategory'       => 'Sub Category',
+    'all'               => 'All',
+    'price'             => 'Price',
+    'min'               => 'Min',
+    'max'               => 'Max',
+
+    'register_page'     => [
+        'title'         => 'Create New account',
+        'name'          => 'Your Name',
+        'email'         => 'Your Email',
+        'password'      => 'Password',
+        'confirm_password' => 'Confirm Password',
+        'i_accept'      => 'I accept the',
+        'terms'         => 'Terms and Conditions',
+        'create_account' => 'Create an account',
+        'have_account'  => 'Already have an account?',
+        'login_here'    => 'Login here',
+    ],
+
+    'login_page'        => [
+        'title'         => 'Sign in to your account',
+        'email'         => 'Your Email',
+        'password'      => 'Password',
+        'remember'      => 'Remember me',
+        'forget'        => 'Forget Password?',
+        'sign_in'       => 'Sign in',
+        'dont_have_acc' => "Don't have an account yet?",
+        'sign_up'       => 'Sign up',
+    ],
 ];

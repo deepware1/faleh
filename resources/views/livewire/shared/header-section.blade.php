@@ -47,16 +47,6 @@
                             @endif
                         </ul>
                     </div>
-                    <button data-collapse-toggle="navbar-language" type="button"
-                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="navbar-language" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 17 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 1h15M1 7h15M1 13h15" />
-                        </svg>
-                    </button>
                 </div>
             </nav>
 
@@ -78,28 +68,14 @@
                 </a>
             </div>
         </div>
-
     </nav>
 
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 relative">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="{{ route('home') }}" class="flex items-center">
                 <img src="{{ url('images/panner-logo.jpg') }}" class="h-8 mr-3" alt="Faleh Logo" />
-                {{-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                    {{ config('app.name') }}
-                </span> --}}
             </a>
             <div class="flex md:order-2">
-                <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search"
-                    aria-expanded="false"
-                    class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
-                    <span class="sr-only">{{ __('front.search') }}</span>
-                </button>
                 <div class="relative hidden md:block">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -114,19 +90,9 @@
                         class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-lime-500 focus:border-lime-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500"
                         placeholder="{{ __('front.search') }}...">
                 </div>
-                <button data-collapse-toggle="navbar-search" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    aria-controls="navbar-search" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 1h15M1 7h15M1 13h15" />
-                    </svg>
-                </button>
                 @if ($user)
                     <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar"
-                        class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                        class="flex mx-3 text-sm w-8 h-8 bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                         type="button">
                         <span class="sr-only">Open user menu</span>
                         <img class="w-8 h-8 rounded-full"
@@ -137,22 +103,16 @@
                     <div id="dropdownAvatar"
                         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                         <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                            <div>Bonnie Green</div>
-                            <div class="font-medium truncate">name@flowbite.com</div>
+                            <div>{{ $user->name }}</div>
+                            <div class="font-medium truncate">{{ $user->email }}</div>
                         </div>
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                             aria-labelledby="dropdownUserAvatarButton">
                             <li>
                                 <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    {{ __('front.profile') }}
+                                </a>
                             </li>
                         </ul>
                         <div class="py-2">
@@ -173,6 +133,16 @@
                     class="ml-2 text-white bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">
                     {{ __('front.submit_ad') }}
                 </a>
+                <button data-collapse-toggle="navbar-search" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-search" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
                 <div class="relative mt-3 md:hidden">
@@ -184,7 +154,7 @@
                         </svg>
                     </div>
                     <input type="text" id="search-navbar"
-                        class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-lime-500 focus:border-lime-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500"
+                        class="block w-full p-2 pl-10 text-sm searchtext-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-lime-500 focus:border-lime-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500"
                         placeholder="{{ __('front.search') }}...">
                 </div>
                 <ul
@@ -217,14 +187,16 @@
         </div>
     </nav>
 
-    <nav class="bg-gray-50 dark:bg-gray-700">
+    <nav class="bg-slate-100 dark:bg-slate-700 shadow-md relative">
         <div class="max-w-screen-xl px-4 py-3 mx-auto">
             <div class="flex items-center">
                 <ul class="flex flex-row font-medium mt-0 ltr:mr-6 rtl:ml-6 text-sm">
                     @foreach ($categories as $category)
                         <li class="rtl:ml-8 ltr:mr-8">
                             <a href="{{ route('subcategories', $category->slug) }}"
-                                class="text-gray-900 dark:text-white hover:underline">{{ $category->title }}</a>
+                                class="text-gray-900 dark:text-white hover:underline">
+                                {{ $category->title }}
+                            </a>
                         </li>
                     @endforeach
                 </ul>
