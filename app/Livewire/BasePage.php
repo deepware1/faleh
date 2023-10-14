@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class BasePage extends Component
 {
@@ -27,5 +28,12 @@ class BasePage extends Component
             ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="' . asset('favicon/favicon.ico') . '">')
             ->withUrl()
             ->twitter();
+    }
+
+    public function logoutUser()
+    {
+        Auth::logout();
+        return redirect()->to('/');
+
     }
 }

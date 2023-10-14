@@ -34,6 +34,9 @@ return [
     'price'             => 'Price',
     'min'               => 'Min',
     'max'               => 'Max',
+    'sort'              => 'Sort',
+    'recent'            => 'Recent',
+    'old'               => 'Old',
 
     'availability'      => 'Availability',
     'in_stock'          => 'In Stock',
@@ -44,6 +47,7 @@ return [
     'type'              => 'Type',
     'sell'              => 'Sell',
     'rent'              => 'Rent',
+    'country'           => 'Country',
     'city'              => 'City',
     'chat'              => 'Chat',
     'promote'           => 'Promote',
