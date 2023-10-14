@@ -4,7 +4,7 @@
             const shadow = this.attachShadow({
                 mode: 'closed'
             });
-            shadow.innerHTML = '{!! $slot !!}'
+            shadow.innerHTML = '{{ $slot }}'
         }
     }
 

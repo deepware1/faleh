@@ -35,9 +35,9 @@ return [
     'min'               => 'أقل',
     'max'               => 'أكثر',
 
-    'availability'      => 'Availability',
-    'in_stock'          => 'In Stock',
-    'out_of_stock'      => 'Out of Stock',
+    'availability'      => 'حالة التوفر',
+    'in_stock'          => 'متوفر',
+    'out_of_stock'      => 'غير متوفر',
     'condition'         => 'الحالة',
     'new'               => 'جديد',
     'used'              => 'مستخدم',

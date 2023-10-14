@@ -47,10 +47,6 @@
                     <span class="text-gray-600">{{ __('front.' . $item->type) }}</span>
                 </p>
                 <p class="space-x-2">
-                    <span class="text-gray-800 font-semibold">{{ __('front.type') }}: </span>
-                    <span class="text-gray-600">{{ __('front.' . $item->type) }}</span>
-                </p>
-                <p class="space-x-2">
                     <span class="text-gray-800 font-semibold">{{ __('front.city') }}: </span>
                     <span class="text-gray-600">{{ $item->city->name }}</span>
                 </p>
