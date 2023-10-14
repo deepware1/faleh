@@ -1,4 +1,4 @@
-<div class="container mx-auto overflow-x-hidden px-2">
+<div class="container mx-auto px-2">
     <!-- breadcrumb -->
     <div class="py-4 flex items-center gap-3">
         <a href="{{ route('home') }}" class="text-lime-500 text-base">

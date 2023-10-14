@@ -24,6 +24,7 @@ return [
     ],
 
     'items'             => 'Items',
+    'item'              => 'Item',
     'recent_items'      => 'Recent Items',
     'featured_items'    => 'Featured Items',
     'promoted_items'    => 'Promoted Items',
@@ -33,6 +34,21 @@ return [
     'price'             => 'Price',
     'min'               => 'Min',
     'max'               => 'Max',
+
+    'availability'      => 'Availability',
+    'in_stock'          => 'In Stock',
+    'out_of_stock'      => 'Out of Stock',
+    'condition'         => 'Condition',
+    'new'               => 'New',
+    'used'              => 'Used',
+    'type'              => 'Type',
+    'sell'              => 'Sell',
+    'rent'              => 'Rent',
+    'city'              => 'City',
+    'chat'              => 'Chat',
+    'promote'           => 'Promote',
+    'ask_support'       => 'Ask for Support',
+    'description'       => 'Description',
 
     'register_page'     => [
         'title'         => 'Create New account',

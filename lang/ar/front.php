@@ -24,6 +24,7 @@ return [
     ],
 
     'items'             => 'المنتجات',
+    'item'              => 'المنتج',
     'recent_items'      => 'المنتجات الأخيرة',
     'featured_items'    => 'المنتجات المميزة',
     'promoted_items'    => 'المنتجات المروجة',
@@ -33,6 +34,21 @@ return [
     'price'             => 'السعر',
     'min'               => 'أقل',
     'max'               => 'أكثر',
+
+    'availability'      => 'Availability',
+    'in_stock'          => 'In Stock',
+    'out_of_stock'      => 'Out of Stock',
+    'condition'         => 'الحالة',
+    'new'               => 'جديد',
+    'used'              => 'مستخدم',
+    'type'              => 'النوع',
+    'sell'              => 'بيع',
+    'rent'              => 'إيجار',
+    'city'              => 'المدينة',
+    'chat'              => 'محادثة',
+    'promote'           => 'ترويج',
+    'ask_support'       => 'طلب دعم على المنتج',
+    'description'       => 'الوصف',
 
     'register_page'     => [
         'title'         => 'إنشاء حساب جديد',

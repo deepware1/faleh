@@ -15,7 +15,18 @@ export default {
       },
       height: {
         '100': '28rem',
+      },
+      spacing: {
+        '100': '28rem',
       }
+    },
+  },
+  layers: {
+    'no-tailwindcss': {
+      // Add any styles you want to disable here
+      '.no-tailwindcss': {
+        all: 'unset',
+      },
     },
   },
   plugins: [
