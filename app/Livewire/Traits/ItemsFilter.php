@@ -24,6 +24,8 @@ trait ItemsFilter
     {
         if ($this->category != "all") {
             $this->subCategories = $this->getChildCategories();
+        } else {
+            $this->subCategories = [];
         }
     }
 
@@ -47,7 +49,7 @@ trait ItemsFilter
             $builder = Item::query();
         }
 
-        if ($this->subCategory != "all" || $this->subCategory !== null) {
+        if ($this->subCategory != "all" && $this->subCategory != null) {
             $builder->where("subcategory_id", $this->subCategory);
         }
 
