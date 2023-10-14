@@ -2,7 +2,7 @@
     class EmbeddedWebview extends HTMLElement {
         connectedCallback() {
             const shadow = this.attachShadow({
-                mode: 'closed'
+                mode: 'open'
             });
             shadow.innerHTML = '{{ $slot }}'
         }

@@ -72,7 +72,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 SpatieLaravelTranslatablePlugin::make()
-                    ->defaultLocales(['en', 'ar']),
+                    ->defaultLocales(['ar', 'en']),
                 // FilamentNavigation::make(),
                 SkyPlugin::make()
                     ->skyPrefix('blog')
@@ -110,7 +110,7 @@ class AdminPanelProvider extends PanelProvider
                     ->recentPostsLimit(5)
                     ->searchResultHighlightCssClass('highlight')
                     ->skipHighlightingTerms(['iframe'])
-                    ->defaultFeaturedImage('url/to/image')
+                    ->defaultFeaturedImage('')
                     ->libraryTypes([
                         'FILE' => 'File',
                         'IMAGE' => 'Image',

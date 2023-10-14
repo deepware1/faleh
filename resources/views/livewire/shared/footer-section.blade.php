@@ -24,7 +24,7 @@
                         {{ __('front.footer.app') }}
                     </h3>
                     <div class="mt-4 space-y-4">
-                        <a href="#" class="text-base text-gray-500 hover:text-white block">
+                        <a href="{{ route('home') }}" class="text-base text-gray-500 hover:text-white block">
                             {{ __('front.home') }}
                         </a>
                         <a href="{{ route('categories') }}" class="text-base text-gray-500 hover:text-white block">
@@ -44,7 +44,7 @@
                         <a href="#" class="text-base text-gray-500 hover:text-white block">
                             {{ __('front.footer.about') }}
                         </a>
-                        <a href="#" class="text-base text-gray-500 hover:text-white block">
+                        <a href="{{ route('blogs') }}" class="text-base text-gray-500 hover:text-white block">
                             {{ __('front.footer.blog') }}
                         </a>
                     </div>
@@ -57,7 +57,7 @@
                     </h3>
                     <div class="mt-4 space-y-4">
                         @foreach (App\Models\Post::where('post_type', 'page')->get() as $page)
-                            <a href="#"
+                            <a href="{{ route('page', $page->slug) }}"
                                 class="text-base text-gray-500 hover:text-white block">{{ $page->title }}</a>
                         @endforeach
                     </div>

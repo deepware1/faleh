@@ -156,7 +156,7 @@ class CategoryResource extends Resource
                     ->searchable(['status'])
                     ->toggleable()
                     ->view('zeus::filament.columns.status-desc')
-                    ->tooltip(fn (Category $record): string => $record->published_at->format('Y/m/d | H:i A')),
+                    ->tooltip(fn (Category $record): string => $record->published_at?->format('Y/m/d | H:i A') ?? ""),
 
                 TextColumn::make("parent.title")
                     ->label("Parent Category"),

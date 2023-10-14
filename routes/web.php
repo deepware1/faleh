@@ -10,6 +10,7 @@ use App\Livewire\CategoriesPage;
 use App\Livewire\SubCategoriesPage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Livewire\Page;
 use App\Http\Livewire\Tags;
 use App\Livewire\CategoriesItemsPage;
 use App\Livewire\ItemCreatePage;
@@ -34,6 +35,7 @@ Route::get("locale/{locale}", LocalizationController::class)->name("locale");
 
 Route::group(['middleware' => 'auth'], function () {
     //Route::get('/user/profile', [AuthController::class, 'getProfile']);
-    Route::get('/create/item',ItemCreatePage::class)->name('item.create');
+    Route::get('/create/item', ItemCreatePage::class)->name('item.create');
 });
 
+Route::get("/{slug}", Page::class)->name("page");

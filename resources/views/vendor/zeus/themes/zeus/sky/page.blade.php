@@ -1,35 +1,25 @@
 <div class="mt-6 container mx-auto px-2 md:px-4">
-
-    <x-slot name="header">
-        <span class="capitalize">{{ $post->title }}</span>
-    </x-slot>
-
-    <x-slot name="breadcrumbs">
-        @if($post->parent !== null)
-            <li class="flex items-center">
-                <a href="{{ route('page',[$post->parent->slug]) }}" class="text-gray-400 dark:text-gray-200 capitalize" aria-current="page">{{ $post->parent->title }}</a>
-                @svg('iconpark-rightsmall-o','fill-current w-4 h-4 mx-3')
-            </li>
-        @endif
-        <li class="flex items-center">
+    <!-- breadcrumb -->
+    <div class="py-4 flex items-center gap-3">
+        <a href="{{ route('home') }}" class="text-lime-500 text-base">
+            <i class="fa-solid fa-house"></i>
+        </a>
+        <span class="text-sm text-gray-400">
+            <i class="fa-solid fa-chevron-left ltr:hidden"></i>
+            <i class="fa-solid fa-chevron-right rtl:hidden"></i>
+        </span>
+        <p class="text-gray-600 font-medium">
             {{ $post->title }}
-        </li>
-    </x-slot>
+        </p>
+    </div>
+    <!-- ./breadcrumb -->
 
-    @if($post->image() !== null)
-        <img alt="{{ $post->title }}" src="{{ $post->image() }}" class="my-10 w-full aspect-video shadow-md rounded-[2rem] rounded-bl-none z-0 object-cover"/>
+    @if ($post->image())
+        <img alt="{{ $post->title }}" src="{{ $post->image() }}"
+            class="my-10 w-full aspect-video shadow-md rounded-[2rem] rounded-bl-none z-0 object-cover" />
     @endif
 
-    <div class="bg-white dark:bg-gray-800 rounded-[2rem] rounded-tl-none shadow-md px-10 pb-6 ">
-        <div class="flex items-center justify-between">
-            <span class="font-light text-gray-600 dark:text-gray-100">{{ optional($post->published_at)->diffForHumans() ?? '' }}</span>
-            <div>
-                @unless ($post->tags->isEmpty())
-                    @each($skyTheme.'.partial.category', $post->tags->where('type','category'), 'category')
-                @endunless
-            </div>
-        </div>
-
+    <div class="bg-white dark:bg-gray-800 pb-6 ">
         <div class="flex flex-col items-start justify-start gap-4">
             <div>
                 <a href="#" class="text-2xl font-bold text-gray-700 dark:text-gray-100 hover:underline">
@@ -39,27 +29,13 @@
                     {{ $post->description ?? '' }}
                 </p>
             </div>
-            <a href="#" class="flex items-center gap-2">
-                <img src="{{ \Filament\Facades\Filament::getUserAvatarUrl($post->author) }}" alt="avatar" class="object-cover w-10 h-10 rounded-full sm:block">
-                <h1 class="font-bold text-gray-700 dark:text-gray-100 hover:underline">{{ $post->author->name ?? '' }}</h1>
-            </a>
         </div>
 
-        <div class="mt-6 lg:mt-12 prose dark:prose-invert max-w-none">
-            {!! $post->getContent() !!}
+        <div class="mt-6 lg:mt-12 ltr:text-left [&>*]:bg-gray-300">
+            <x-content>
+                {!! $post->getContent() !!}
+            </x-content>
         </div>
-
-        @if(!$children->isEmpty())
-            <div class="py-6 flex flex-col mt-4 gap-4">
-                <h1 class="text-xl font-bold text-gray-700 dark:text-gray-100 md:text-2xl">children pages</h1>
-
-                <div class="grid grid-cols-3 gap-4">
-                    @foreach($children as $post)
-                        @include($skyTheme.'.partial.children-pages')
-                    @endforeach
-                </div>
-            </div>
-        @endif
 
     </div>
 </div>
