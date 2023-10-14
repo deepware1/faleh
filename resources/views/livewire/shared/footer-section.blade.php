@@ -57,7 +57,7 @@
                     </h3>
                     <div class="mt-4 space-y-4">
                         @foreach (App\Models\Post::where('post_type', 'page')->get() as $page)
-                            <a href="{{ route('page', $page->slug) }}"
+                            <a href="{{ route('new-page', $page->slug) }}"
                                 class="text-base text-gray-500 hover:text-white block">{{ $page->title }}</a>
                         @endforeach
                     </div>

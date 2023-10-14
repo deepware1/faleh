@@ -38,4 +38,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/create/item', ItemCreatePage::class)->name('item.create');
 });
 
-Route::get("/{slug}", Page::class)->name("page");
+Route::get("/{slug}", Page::class)->name("new-page");

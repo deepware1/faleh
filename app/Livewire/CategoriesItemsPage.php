@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Livewire\Traits\ItemsFilter;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\WithPagination;
@@ -9,42 +10,26 @@ use Livewire\WithPagination;
 class CategoriesItemsPage extends BasePage
 {
     use WithPagination;
+    use ItemsFilter;
 
-    protected string $viewPath = "livewire.categories-items-page";
+    protected string $viewPath = "livewire.items.index";
     protected string $pageTitle = "Items";
-
-    // page data
-    public Category $category;
+    public $isSub = true;
 
     public function mount(Category $category)
     {
-        $this->category = $category;
+        $this->categories = $this->getParentCategories();
+        $this->category = $category->parent_id;
+        $this->subCategories = $this->getChildCategories();
+        $this->subCategory = $category->id;
     }
 
     public function render()
     {
+        $items = $this->prepareItems();
+
         return view($this->viewPath, [
-            "items" => $this->category->items()->isPublished()->simplePaginate(8),
-        ]);
-    }
-
-    public function previousPage($pageName = 'page')
-    {
-        $page = max(($this->paginators[$pageName] ?? 1) - 1, 1);
-
-        return redirect()->route("subcategories.items", [
-            "category" => $this->category,
-            "page" => $page
-        ]);
-    }
-
-    public function nextPage($pageName = 'page')
-    {
-        $page = ($this->paginators[$pageName] ?? 1) + 1;
-
-        return redirect()->route("subcategories.items", [
-            "category" => $this->category,
-            "page" => $page
+            "items" => $items,
         ]);
     }
 }

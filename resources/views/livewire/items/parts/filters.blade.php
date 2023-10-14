@@ -1,30 +1,35 @@
 <div class="divide-y divide-gray-200 space-y-5">
-    <div>
-        <h3 class="text-xl text-gray-800 mb-3 uppercase font-medium">
-            {{ __('front.category') }}
-        </h3>
-        <select wire:model.live="category"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500">
-            <option value="all">{{ __('front.all') }}</option>
-            @foreach ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->title }}</option>
-            @endforeach
-        </select>
-    </div>
+    @if (isset($categories))
+        <div>
+            <h3 class="text-xl text-gray-800 mb-3 uppercase font-medium">
+                {{ __('front.category') }}
+            </h3>
+            <select wire:model.live="category" @isset($isSub) disabled @endisset
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500">
+                <option value="all">{{ __('front.all') }}</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
+            </select>
+        </div>
+    @endif
 
-    <div>
-        <h3 class="text-xl text-gray-800 mb-3 uppercase font-medium">
-            {{ __('front.subcategory') }}
-        </h3>
-        <select wire:model.live="subCategory"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500">
-            <option value="all">{{ __('front.all') }}</option>
+    @if (isset($subCategories))
+        <div>
+            <h3 class="text-xl text-gray-800 mb-3 uppercase font-medium">
+                {{ __('front.subcategory') }}
+            </h3>
+            <select wire:model.live="subCategory" @isset($isSub) disabled @endisset
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-lime-500 dark:focus:border-lime-500">
+                <option value="all">{{ __('front.all') }}</option>
 
-            @foreach ($subCategories as $category)
-                <option value="{{ $category->id }}">{{ $category->title }}</option>
-            @endforeach
-        </select>
-    </div>
+                @foreach ($subCategories as $category)
+                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
+            </select>
+        </div>
+    @endif
+
 
     {{-- <div class="pt-4">
         <h3 class="text-xl text-gray-800 mb-3 uppercase font-medium">Brands</h3>
