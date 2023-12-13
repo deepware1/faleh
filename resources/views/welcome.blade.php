@@ -59,7 +59,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product1.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -102,7 +102,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product4.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -145,7 +145,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product2.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -188,7 +188,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product3.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -248,7 +248,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product1.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -292,7 +292,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product4.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -335,7 +335,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product2.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -378,7 +378,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product3.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -421,7 +421,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product1.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -465,7 +465,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product4.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -508,7 +508,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product2.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -551,7 +551,7 @@
                         <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/products/product3.jpg"
                             alt="product 1" class="w-full">
                         <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             <a href="#"
                                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"

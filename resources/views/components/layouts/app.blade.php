@@ -22,10 +22,67 @@
     @stack('styles')
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <style>
         [x-cloak] {
             display: none !important;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 75%;
+            margin-right: 2%;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .slider-item {
+            flex: 0 0 100%;
+        }
+
+        .slider-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            font-size: 2rem;
+            color: #fff;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .slider-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .slider-arrow i {
+            margin: 0;
+        }
+
+        .slider-prev {
+            left: 0;
+        }
+
+        .slider-next {
+            right: 0;
+        }
+
+        .ad-box {
+            margin-top: 20px; /* Adjust the margin as needed */
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -33,7 +90,7 @@
 
 <body class="bg-white font-family-karla">
     <livewire:shared.header-section />
-    
+
     {{ $slot }}
 
     <livewire:shared.footer-section />
@@ -41,8 +98,9 @@
     @stack('scripts')
     @livewireScripts
 
-    @livewire('notifications')
 
+    @livewire('notifications')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <script>
         const theme = localStorage.getItem('theme')
 
@@ -60,6 +118,28 @@
             }
         })
 
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script>
+        // JavaScript to handle slider movement
+        let currentIndex = 0;
+        const sliderTrack = document.getElementById('sliderTrack');
+        const slides = document.querySelectorAll('.slider-item');
+
+        function moveSlider(index) {
+            const translateValue = `-${index * 100}%`;
+            sliderTrack.style.transform = `translateX(${translateValue})`;
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            moveSlider(currentIndex);
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            moveSlider(currentIndex);
+        }
     </script>
 
 </body>

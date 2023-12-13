@@ -174,8 +174,77 @@
     </nav>
 
     @if (Route::is('home'))
-    <header class="w-full mx-auto h-100 items-center overflow-hidden">
-        <img class="-z-50 object-cover w-full h-full" src="{{ url('images/slider.jpg') }}">
-    </header>
+
+        <header>
+            <!-- Container for Slider and Ad Boxes -->
+            <div class="max-w-2xl mx-auto flex">
+                <div class="w-1/4 p-2 rounded-md shadow-md mr-4">
+                    <!-- Ad Box 1 -->
+                    <div class="mb-4">
+                        <img src="https://placekitten.com/801/400" alt="Ad 1" class="w-full h-auto rounded-md">
+                        <!-- Your Ad Content for Box 1 -->
+                    </div>
+
+                    <!-- Ad Box 2 -->
+                    <div>
+                        <img src="https://placekitten.com/802/400" alt="Ad 2" class="w-full h-auto rounded-md">
+                        <!-- Your Ad Content for Box 2 -->
+                    </div>
+                </div>
+
+                <div class="max-w-2xl relative overflow-hidden rounded-lg w-3/4 mx-auto flex">
+                    <!-- Slider Container -->
+                    <div class="slider-container">
+                        <!-- Slider Track (Animate this div for slider effect) -->
+                        <div class="slider-track" id="sliderTrack">
+                            <!-- Slide 1 -->
+                            <div class="slider-item">
+                                <!-- Your Content for Slide 1 -->
+                                <img src="https://placekitten.com/801/400" alt="Slide 1">
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="slider-item">
+                                <!-- Your Content for Slide 2 -->
+                                <img src="https://placekitten.com/802/400" alt="Slide 2">
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="slider-item">
+                                <!-- Your Content for Slide 3 -->
+                                <img src="https://placekitten.com/803/400" alt="Slide 3">
+                            </div>
+
+                            <!-- Slide 4 -->
+                            <div class="slider-item">
+                                <!-- Your Content for Slide 4 -->
+                                <img src="https://placekitten.com/804/400" alt="Slide 4">
+                            </div>
+                            <!-- Add more slides as needed -->
+                        </div>
+
+                        <!-- Left Arrow -->
+                        <div class="slider-arrow slider-prev" onclick="prevSlide()">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+
+                        <!-- Right Arrow -->
+                        <div class="slider-arrow slider-next" onclick="nextSlide()">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-2xl mx-auto flex">
+                <!-- Ad Box 1 -->
+                <div class="mb-4">
+                    <img src="https://placekitten.com/801/400" alt="Ad 1" class="w-full h-auto rounded-md">
+                    <!-- Your Ad Content for Box 1 -->
+                </div>
+            </div>
+        </header>
+        {{--        <header class="w-full mx-auto h-100 items-center overflow-hidden">--}}
+{{--        <img class="-z-50 object-cover w-full h-full" src="{{ url('images/slider.jpg') }}">--}}
+{{--    </header>--}}
     @endif
 </div>

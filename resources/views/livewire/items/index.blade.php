@@ -1,4 +1,4 @@
-<div class="container mx-auto px-2">
+<div class="container mx-auto px-5">
     <!-- breadcrumb -->
     <div class="py-4 flex items-center gap-3">
         <a href="{{ route('home') }}" class="text-lime-500 text-base">
@@ -62,7 +62,7 @@
         </div>
 
         <!-- ./sidebar -->
-        <div class="col-span-1 bg-gray-100 px-4 py-6 shadow rounded overflow-hiddenb hidden md:block">
+        <div class="col-span-1 bg-gray-100 px-4 py-6 shadow rounded overflow-hidden hidden md:block">
             @include('livewire.items.parts.filters')
         </div>
         <!-- products -->
