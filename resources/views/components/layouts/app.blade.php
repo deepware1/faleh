@@ -17,16 +17,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=KoHo:ital,wght@0,200;0,300;0,500;0,700;1,200;1,300;1,600;1,700&display=swap"
         rel="stylesheet">
-
     @livewireStyles
     @stack('styles')
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.css"
     />
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
+
         [x-cloak] {
             display: none !important;
         }
@@ -84,6 +83,79 @@
         .ad-box {
             margin-top: 20px; /* Adjust the margin as needed */
         }
+
+        .navigation-wrapper {
+            position: relative;
+        }
+
+        .dots {
+            display: flex;
+            padding: 10px 0;
+            justify-content: center;
+            position: relative;
+            top: -45px;
+        }
+
+        .dot {
+            border: none;
+            width: 10px;
+            height: 10px;
+            background: #c5c5c5;
+            border-radius: 50%;
+            margin: 0 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .dot:focus {
+            outline: none;
+        }
+
+        .dot--active {
+            background: #fff;
+            width: 30px;
+            border-radius: 4px;
+        }
+
+        .arrow {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            fill: #fff;
+            cursor: pointer;
+            background: #fff;
+            padding: 5px;
+            border-radius: 50%;
+        }
+
+        .arrow--left {
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            left: 4px;
+            fill: "#fff";
+            background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath d='M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z' %3E%3C/path%3E%3C/svg%3E");
+        }
+
+        .arrow--right {
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            left: auto;
+            right: 4px;
+            background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 24 24' %3E%3Cpath d='M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        .arrow--disabled.arrow--left {
+            background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' fill='grey' viewBox='0 0 24 24' %3E%3Cpath d='M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z' %3E%3C/path%3E%3C/svg%3E");
+        }
+
+        .arrow--disabled.arrow--right {
+            background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' fill='grey' viewBox='0 0 24 24' %3E%3Cpath d='M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z'%3E%3C/path%3E%3C/svg%3E");
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -101,12 +173,111 @@
 
     @livewire('notifications')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.js"></script>
+    <script>
+        function navigation(slider) {
+            let wrapper, dots, arrowLeft, arrowRight
+
+            function markup(remove) {
+                wrapperMarkup(remove)
+                dotMarkup(remove)
+                arrowMarkup(remove)
+            }
+
+            function removeElement(elment) {
+                elment.parentNode.removeChild(elment)
+            }
+            function createDiv(className) {
+                var div = document.createElement("div")
+                var classNames = className.split(" ")
+                classNames.forEach((name) => div.classList.add(name))
+                return div
+            }
+
+            function arrowMarkup(remove) {
+                if (remove) {
+                    removeElement(arrowLeft)
+                    removeElement(arrowRight)
+                    return
+                }
+                arrowLeft = createDiv("arrow arrow--left")
+                arrowLeft.addEventListener("click", () => slider.prev())
+                arrowRight = createDiv("arrow arrow--right")
+                arrowRight.addEventListener("click", () => slider.next())
+
+                wrapper.appendChild(arrowLeft)
+                wrapper.appendChild(arrowRight)
+            }
+
+            function wrapperMarkup(remove) {
+                if (remove) {
+                    var parent = wrapper.parentNode
+                    while (wrapper.firstChild)
+                        parent.insertBefore(wrapper.firstChild, wrapper)
+                    removeElement(wrapper)
+                    return
+                }
+                wrapper = createDiv("navigation-wrapper")
+                slider.container.parentNode.appendChild(wrapper)
+                wrapper.appendChild(slider.container)
+            }
+
+            function dotMarkup(remove) {
+                if (remove) {
+                    removeElement(dots)
+                    return
+                }
+                dots = createDiv("dots")
+                slider.track.details.slides.forEach((_e, idx) => {
+                    var dot = createDiv("dot")
+                    dot.addEventListener("click", () => slider.moveToIdx(idx))
+                    dots.appendChild(dot)
+                })
+                wrapper.appendChild(dots)
+            }
+
+            function updateClasses() {
+                var slide = slider.track.details.rel
+                slide === 0
+                    ? arrowLeft.classList.add("arrow--disabled")
+                    : arrowLeft.classList.remove("arrow--disabled")
+                slide === slider.track.details.slides.length - 1
+                    ? arrowRight.classList.add("arrow--disabled")
+                    : arrowRight.classList.remove("arrow--disabled")
+                Array.from(dots.children).forEach(function (dot, idx) {
+                    idx === slide
+                        ? dot.classList.add("dot--active")
+                        : dot.classList.remove("dot--active")
+                })
+            }
+
+            slider.on("created", () => {
+                markup()
+                updateClasses()
+            })
+            slider.on("optionsChanged", () => {
+                console.log(2)
+                markup(true)
+                markup()
+                updateClasses()
+            })
+            slider.on("slideChanged", () => {
+                updateClasses()
+            })
+            slider.on("destroyed", () => {
+                markup(true)
+            })
+        }
+
+        var slider = new KeenSlider("#my-keen-slider", {}, [navigation])
+
+    </script>
     <script>
         const theme = localStorage.getItem('theme')
 
-        if ((theme === 'dark') || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark')
-        }
+{{--        if ((theme === 'dark') || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {--}}
+{{--            document.documentElement.classList.add('dark')--}}
+{{--        }--}}
 
         var searchInput = document.getElementById("search-navbar");
         searchInput.addEventListener("keyup", (event) => {
@@ -120,27 +291,7 @@
 
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-    <script>
-        // JavaScript to handle slider movement
-        let currentIndex = 0;
-        const sliderTrack = document.getElementById('sliderTrack');
-        const slides = document.querySelectorAll('.slider-item');
 
-        function moveSlider(index) {
-            const translateValue = `-${index * 100}%`;
-            sliderTrack.style.transform = `translateX(${translateValue})`;
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            moveSlider(currentIndex);
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            moveSlider(currentIndex);
-        }
-    </script>
 
 </body>
 

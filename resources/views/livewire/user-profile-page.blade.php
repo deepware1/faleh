@@ -1,4 +1,4 @@
- <div class="container mx-auto px-2">
+ <div class="container mx-auto px-4">
      <!-- wrapper -->
      <div class="container grid grid-cols-12 items-start gap-6 pt-4 pb-16">
 

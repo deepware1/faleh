@@ -2,7 +2,7 @@
 <footer class="bg-slate-900 pb-12 border-t border-gray-100">
 
     <div class="bg-white mb-4 pt-12">
-        <div class="container mx-auto grid grid-cols-1 ">
+        <div class="container px-4 mx-auto grid grid-cols-1 ">
             <div class="col-span-1 space-y-4 mb-8">
                 <div class="flex items-center">
                     <img src="{{ url('images/panner-logo.jpg') }}" class="h-8 mr-3" alt="Faleh Logo" />
@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <div class="container mx-auto grid grid-cols-1 ">
+    <div class="container px-4 mx-auto grid grid-cols-1 ">
         <div class="col-span-2 grid grid-cols-2 gap-4">
             <div class="grid grid-cols-2 gap-4 md:gap-8">
                 <div>

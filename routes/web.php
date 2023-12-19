@@ -29,9 +29,11 @@ Route::get("/items/{slug}", ItemShowPage::class)->name("items.show.item");
 Route::get('/search/items/{keyword}', SearchPage::class)->name("search");
 
 Route::get("/weather", WeatherPage::class)->name("weather");
+Route::get("/story", WeatherPage::class)->name("story");
+Route::get("/information", WeatherPage::class)->name("information");
 Route::get("/contact-us", ContactUsPage::class)->name("contact.us");
 
-// auth 
+// auth
 Route::get('/login', LoginPage::class)->name('login');
 Route::get('/register', RegisterPage::class)->name('register');
 

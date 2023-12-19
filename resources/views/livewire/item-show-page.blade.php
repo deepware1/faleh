@@ -1,7 +1,7 @@
-<div class="container mx-auto px-2">
+<div class="container px-4 mx-auto px-2">
 
     <!-- breadcrumb -->
-    <div class="container py-4 flex items-center gap-3">
+    <div class="container px-4 py-4 flex items-center gap-3">
         <a href="{{ route('home') }}" class="text-lime-500 text-base">
             <i class="fa-solid fa-house"></i>
         </a>

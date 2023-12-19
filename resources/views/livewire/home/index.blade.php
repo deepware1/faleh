@@ -1,6 +1,6 @@
 <div class="mx-auto">
     <!-- categories -->
-    <div class="container mx-auto py-16">
+    <div class="container px-4 mx-auto py-16">
         <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">
             {{ __('front.categories') }}
         </h2>

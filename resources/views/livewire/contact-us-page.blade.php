@@ -1,4 +1,4 @@
-<div class="container mx-auto px-2">
+<div class="container mx-auto px-4">
     <div class="w-full lg:w-large lg:mx-auto px-4 md:px-6 lg:px-0 xl:w-feLarge">
         <div class="bg-feAchromatic-50 dark_bg-feAchromatic-900 rounded-lg w-auto sm:w-[556px] sm:mt-32 lg:mt-36 mt-28 mb-16 mx-auto py-4">
             <div class="flex justify-center items-center">

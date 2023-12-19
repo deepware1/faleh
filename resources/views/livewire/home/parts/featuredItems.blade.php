@@ -1,6 +1,6 @@
 <div class="bg-sky-50 bg-opacity-40">
     <!-- new arrival -->
-    <div class="container mx-auto py-16">
+    <div class="container px-4 mx-auto py-16">
         <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">
             {{ __('front.featured_items') }}
         </h2>

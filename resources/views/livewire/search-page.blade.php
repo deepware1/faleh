@@ -1,4 +1,4 @@
-<div class="container mx-auto">
+<div class="container px-4 mx-auto">
     <div class="container pb-16">
         <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">Search for {{$keyword}}</h2>
         <form method="get">

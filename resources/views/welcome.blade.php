@@ -1,9 +1,9 @@
 @extends('layout.main')
 
 @section('body')
-    <div class="container mx-auto">
+    <div class="container px-4 mx-auto">
         <!-- features -->
-        <div class="container py-16">
+        <div class="container px-4 py-16">
             <div class="w-10/12 grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto justify-center">
                 <div class="border border-primary rounded-sm px-3 py-6 flex justify-center items-center gap-5">
                     <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/icons/delivery-van.svg"
@@ -34,7 +34,7 @@
         <!-- ./features -->
 
         <!-- categories -->
-        <div class="container py-16">
+        <div class="container px-4 py-16">
             <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">Categories</h2>
             <div class="grid grid-cols-4 gap-3">
                 @foreach ($categories as $category)
@@ -51,7 +51,7 @@
         <!-- ./categories -->
 
         <!-- new arrival -->
-        <div class="container pb-16">
+        <div class="container px-4 pb-16">
             <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">top new arrival</h2>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div class="bg-white shadow rounded overflow-hidden group">
@@ -231,7 +231,7 @@
         <!-- ./new arrival -->
 
         <!-- ads -->
-        <div class="container pb-16">
+        <div class="container px-4 pb-16">
             <a href="#">
                 <img src="https://raw.githubusercontent.com/fajar7xx/ecommerce-template-tailwind-1/main/public/assets/images/offer.jpg"
                     alt="ads" class="w-full">
@@ -240,7 +240,7 @@
         <!-- ./ads -->
 
         <!-- product -->
-        <div class="container pb-16">
+        <div class="container px-4 pb-16">
             <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">recomended for you</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="bg-white shadow rounded overflow-hidden group">
