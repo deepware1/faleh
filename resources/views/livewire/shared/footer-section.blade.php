@@ -1,20 +1,24 @@
 <!-- footer -->
-<footer class="bg-slate-900 pb-12 border-t border-gray-100">
-
-    <div class="bg-white mb-4 pt-12">
-        <div class="container px-4 mx-auto grid grid-cols-1 ">
-            <div class="col-span-1 space-y-4 mb-8">
-                <div class="flex items-center">
+<footer class="bg-slate-900  border-t border-gray-100">
+    <div class="bg-white mb-4 cpy-60">
+        <div class="container px-4 mx-auto">
+            <div class="custom-flex">
+                <!-- Logo Image -->
+                <div class="footer-image">
                     <img src="{{ url('images/panner-logo.jpg') }}" class="h-8 mr-3" alt="Faleh Logo" />
                 </div>
-                <div class="mr-2">
-                    <p class="text-gray-500 max-w-lg">
+
+                <!-- Text Description -->
+                <div class="footer-paragraph mr-2">
+                    <p class="text-gray-500">
                         {{ __('front.footer.description') }}
                     </p>
                 </div>
+
             </div>
         </div>
     </div>
+
 
     <div class="container px-4 mx-auto grid grid-cols-1 ">
         <div class="col-span-2 grid grid-cols-2 gap-4">

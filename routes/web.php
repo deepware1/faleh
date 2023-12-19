@@ -7,6 +7,7 @@ use App\Http\Livewire\Posts;
 use App\Livewire\SearchPage;
 use App\Livewire\RegisterPage;
 use App\Livewire\CategoriesPage;
+use App\Livewire\StoryPage;
 use App\Livewire\SubCategoriesPage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocalizationController;
@@ -29,8 +30,8 @@ Route::get("/items/{slug}", ItemShowPage::class)->name("items.show.item");
 Route::get('/search/items/{keyword}', SearchPage::class)->name("search");
 
 Route::get("/weather", WeatherPage::class)->name("weather");
-Route::get("/story", WeatherPage::class)->name("story");
-Route::get("/information", WeatherPage::class)->name("information");
+Route::get("/story", StoryPage::class)->name("story");
+Route::get("/information", \App\Livewire\InformationPage::class)->name("information");
 Route::get("/contact-us", ContactUsPage::class)->name("contact.us");
 
 // auth

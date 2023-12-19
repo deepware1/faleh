@@ -156,6 +156,28 @@
         .arrow--disabled.arrow--right {
             background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' fill='grey' viewBox='0 0 24 24' %3E%3Cpath d='M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z'%3E%3C/path%3E%3C/svg%3E");
         }
+
+        .cpy-60{
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .custom-flex{
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-paragraph{
+            font-size: 24px;
+            width: 60%;
+            margin-right: 25px;
+        }
+
+        .footer-image img{
+            width:420px;
+            height: 200px;
+            border-radius: 5px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>

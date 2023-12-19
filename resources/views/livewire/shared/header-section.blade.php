@@ -183,21 +183,21 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('weather') }}"
+                        <a title="{{ __('front.weather') }}" href="{{ route('weather') }}"
                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lime-700 md:p-0 md:dark:hover:text-lime-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             <i class="fas fa-cloud-sun" style="font-size: 25px;"></i>
                         </a>
                     </li>
 
                     <li>
-                        <a href=""
+                        <a title="{{ __('front.story') }}" href=""
                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lime-700 md:p-0 md:dark:hover:text-lime-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                            <i class="fa-solid fa-chalkboard-user" style="font-size: 25px;"></i>
+                            <i data-tooltip-style="قصة وحكاية" class="fa-solid fa-chalkboard-user" style="font-size: 25px;"></i>
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{ route('weather') }}"
+                        <a title="{{ __('front.agri_information') }}" href="{{ route('weather') }}"
                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lime-700 md:p-0 md:dark:hover:text-lime-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                             <i class="fa-solid fa-circle-info" style="font-size: 25px;"></i>
                         </a>
